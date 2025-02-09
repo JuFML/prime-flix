@@ -1,10 +1,11 @@
+import RoutesApp from "./routes"
 
 function App() {
 
   return (
     <>
       <div className="app">
-        TESTE
+        <RoutesApp/>
       </div>
     </>
   )
