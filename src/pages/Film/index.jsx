@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from 'react-toastify';
 import api from "../../services/api";
 import './film.css'
 
@@ -23,7 +24,7 @@ const Film = () => {
       setFilm(response.data)
     } catch(error) {
       console.error('Erro ao buscar filme:', error.response || error.message || error)
-      alert('Não conseguimos encontrar os detalhes do filme. Tente novamente mais tarde.')
+      toast.error('Não conseguimos encontrar os detalhes do filme. Tente novamente mais tarde.')
       navigate('/', {replace: true})
     } 
     finally {
@@ -35,12 +36,12 @@ const Film = () => {
     const savedFilms = JSON.parse(localStorage.getItem('@primeFlix')) || []
     const hasFilm = savedFilms.some(item => item.id == film.id)
     if(hasFilm) {
-      alert('ESTE FILME JÁ ESTÁ SALVO!')
+      toast.warn('Este filme já está salvo!')
       return
     }
     savedFilms.push(film)
     localStorage.setItem('@primeFlix', JSON.stringify(savedFilms))
-    alert('FILME SALVO COM SUCESSO!')
+    toast.success('Filme salvo com sucesso!')
   }
 
   useEffect(() => {
