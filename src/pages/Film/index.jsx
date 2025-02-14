@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import api from "../../services/api";
 import './film.css'
 
@@ -8,6 +8,7 @@ const Film = () => {
   const [film, setFilm] = useState([])
   const [loading, setLoading] = useState(true)
   console.log('film', film)
+  const navigate = useNavigate()
 
   const { id } = useParams()
 
@@ -23,7 +24,9 @@ const Film = () => {
     } catch(error) {
       console.error('Erro ao buscar filme:', error.response || error.message || error)
       alert('Não conseguimos encontrar os detalhes do filme. Tente novamente mais tarde.')
-    } finally {
+      navigate('/', {replace: true})
+    } 
+    finally {
       setLoading(false)
     }
   } 
@@ -58,7 +61,7 @@ const Film = () => {
 
       <div className="area-buttons">
         <button>Salvar</button>
-        <button><a href="#">Trailer</a></button>
+        <button><a target="_blank" href={`https://www.youtube.com/results?search_query=${film.title} Trailer`}>Trailer</a></button>
       </div>
     </div>
   )
