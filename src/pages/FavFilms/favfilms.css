@@ -1,0 +1,41 @@
+.films-container {
+    width: 100%;
+    padding-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.films-container h1 {
+    padding-bottom: 14px;
+    text-transform: uppercase;
+}
+
+.films-container p {
+    font-size: 18px;
+}
+
+
+.films-container ul {
+    width: 720px;
+}
+
+.films-container ul li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.films-container div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.films-container div a {
+    text-decoration: none;
+    color: #116feb;
+    margin-right: 14px;
+}

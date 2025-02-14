@@ -4,6 +4,7 @@ import Film from "./pages/Film";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Error from "./pages/Error";
+import FavFilms from "./pages/FavFilms";
 
 const RoutesApp = () => {
   return (
@@ -12,6 +13,7 @@ const RoutesApp = () => {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/film/:id" element={<Film />} />
+            <Route path="/favorites" element={<FavFilms />} />
 
             <Route path="*" element={<Error />} />
         </Routes>
