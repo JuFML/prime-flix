@@ -17,7 +17,8 @@
 
 
 .films-container ul {
-    width: 720px;
+    max-width: 720px;
+    width: 100%;
 }
 
 .films-container ul li {
@@ -38,4 +39,25 @@
     text-decoration: none;
     color: #116feb;
     margin-right: 14px;
+}
+
+.films-container button,
+.films-container a {
+    margin: 14px 12px 0 0;
+    font-size: 20px;
+    border: 0;
+    outline: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.films-container button:hover {
+    background-color: rgb(25, 25, 48);
+    color: #fff;
+}
+
+.films-container a:hover  {
+    color: rgb(25, 25, 48);
 }
