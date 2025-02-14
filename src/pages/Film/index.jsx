@@ -31,6 +31,18 @@ const Film = () => {
     }
   } 
 
+  const saveFilm = () => {
+    const savedFilms = JSON.parse(localStorage.getItem('@primeFlix')) || []
+    const hasFilm = savedFilms.some(item => item.id == film.id)
+    if(hasFilm) {
+      alert('ESTE FILME JÁ ESTÁ SALVO!')
+      return
+    }
+    savedFilms.push(film)
+    localStorage.setItem('@primeFlix', JSON.stringify(savedFilms))
+    alert('FILME SALVO COM SUCESSO!')
+  }
+
   useEffect(() => {
     getFilmDetail()
 
@@ -60,7 +72,7 @@ const Film = () => {
       <strong>Avaliação: {film.vote_average}/10</strong>
 
       <div className="area-buttons">
-        <button>Salvar</button>
+        <button onClick={saveFilm}>Salvar</button>
         <button><a target="_blank" href={`https://www.youtube.com/results?search_query=${film.title} Trailer`}>Trailer</a></button>
       </div>
     </div>
