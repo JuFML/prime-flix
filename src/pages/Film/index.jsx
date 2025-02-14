@@ -67,14 +67,14 @@ const Film = () => {
     <div className="film-info">
       <h1>{film.title}</h1>
       <img src={`https://image.tmdb.org/t/p/w500${film.backdrop_path}`} alt={film.title} />
-
+      <div className="rate">Avaliação: {Number(film.vote_average).toFixed(0)}/10</div>
       <h3>Sinopse</h3>
       <span>{film.overview}</span>
-      <strong>Avaliação: {film.vote_average}/10</strong>
+      
 
       <div className="area-buttons">
         <button onClick={saveFilm}>Salvar</button>
-        <button><a target="_blank" href={`https://www.youtube.com/results?search_query=${film.title} Trailer`}>Trailer</a></button>
+        <a target="_blank" href={`https://www.youtube.com/results?search_query=${film.title} Trailer`}>Trailer</a>
       </div>
     </div>
   )
